@@ -13,6 +13,7 @@
           >Vue.js</a>
           with
           <a href="https://firebase.google.com">Firebase</a>.
+          <font-awesome-icon icon="star"></font-awesome-icon>
         </p>
 
         <router-link class="btn btn-outline-primary mr-2" to="/register">Register</router-link>
@@ -25,9 +26,12 @@
 
 <script>
 // @ is an alias to /src
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "Home",
-  components: {}
+  components: {
+    FontAwesomeIcon
+  }
 };
 </script>
