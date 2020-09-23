@@ -2,7 +2,7 @@
   <div class="mt-3">
     <div class="text-secondary text-center">
       Welcome back
-      <span class="text-success text-info font-weight-bold">{{ user.name }}</span>
+      <span class="text-success text-info font-weight-bold">{{ user }}</span>
     </div>
     <div class="container text-center">
       <div class="row justify-content-center">
@@ -31,22 +31,9 @@
 
 <script>
 // @ is an alias to /src
-import db from "../db.js";
+// import db from "../db.js";
 export default {
   name: "Home",
-  data() {
-    return {
-      user: null
-    };
-  },
-  mounted() {
-    db.collection("users")
-      .doc("GiyYHGayb6PWvOVUcVs3")
-      .get()
-      .then(snapshot => {
-        this.user = snapshot.data();
-      });
-  },
-  components: {}
+  props: ["user"]
 };
 </script>
