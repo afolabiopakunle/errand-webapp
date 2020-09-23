@@ -8,8 +8,8 @@
 </template>
 <script>
 import Navigation from "./components/Navigation";
-import db from "./db";
-// import firebase from "firebase";
+// import db from "./db";
+import Firebase from "firebase";
 
 export default {
   name: "app",
@@ -24,12 +24,11 @@ export default {
   },
 
   mounted() {
-    db.collection("users")
-      .doc("GiyYHGayb6PWvOVUcVs3")
-      .get()
-      .then(snapshot => {
-        this.user = snapshot.data().name;
-      });
+    Firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.user = user.email;
+      }
+    });
   }
 };
 </script>
